@@ -1,14 +1,16 @@
 import "./RegisterForm.css";
+import { useForm } from "react-hook-form";
 
 function RegisterForm() {
+  const { register, handleSubmit } = useForm();
   return (
-    <form>
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
       <label htmlFor="name">Name:</label>
-      <input type="text" name="name" />
+      <input id="name" type="text" {...register("name")} />
       <label htmlFor="email">Email:</label>
-      <input type="email" name="email" />
+      <input id="email" type="email" {...register("email")} />
       <label htmlFor="password">Password:</label>
-      <input type="password" name="password" />
+      <input id="password" type="password" {...register("password")} />
       <button type="submit">Register</button>
     </form>
   );
