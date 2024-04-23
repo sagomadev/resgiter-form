@@ -11,6 +11,17 @@ function RegisterForm() {
       <input id="email" type="email" {...register("email")} />
       <label htmlFor="password">Password:</label>
       <input id="password" type="password" {...register("password")} />
+      <label htmlFor="confirmPassword">Confirm Password:</label>
+      <input
+        id="confirmPassword"
+        type="password"
+        {...register("confirmPassword")}
+      />
+      <label htmlFor="role">Rol:</label>
+      <select id="role" {...register("role")}>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select>
       <button type="submit">Register</button>
     </form>
   );
