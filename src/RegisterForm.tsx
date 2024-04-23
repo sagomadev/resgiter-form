@@ -1,8 +1,12 @@
 import "./RegisterForm.css";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registerSchema } from "./validations/registerSchema";
 
 function RegisterForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    resolver: zodResolver(registerSchema),
+  });
   return (
     <form onSubmit={handleSubmit((data) => console.log(data))}>
       <label htmlFor="name">Name:</label>
